@@ -317,6 +317,7 @@ export interface MixerHlsFormatOptions extends SizeData {
 }
 export interface MixerPipeLiveData extends MixerPipeData, StreamData, PushSimulcastInput {
     type: MIXER_PIPE_TYPE.LIVE;
+    videoBitrate?: number;
 }
 export interface MixerPipeRecordingData extends MixerPipeData {
     type: MIXER_PIPE_TYPE.RECORDING;
