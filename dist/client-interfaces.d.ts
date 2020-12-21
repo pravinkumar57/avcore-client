@@ -315,9 +315,8 @@ export interface MixerPipeData extends MixerInput, KindsData {
 export interface MixerHlsFormatOptions extends SizeData {
     videoBitrate: number;
 }
-export interface MixerPipeLiveData extends MixerPipeData, StreamData, PushSimulcastInput {
+export interface MixerPipeLiveData extends MixerPipeData, StreamData, PushSimulcastInput, BitrateOptions {
     type: MIXER_PIPE_TYPE.LIVE;
-    videoBitrate?: number;
 }
 export interface MixerPipeRecordingData extends MixerPipeData {
     type: MIXER_PIPE_TYPE.RECORDING;
