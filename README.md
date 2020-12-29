@@ -35,7 +35,7 @@ const {CloudClient,Utils} = avcoreClient;
 ```
 In TypeScript
 ```typescript
-import {CloudClient,Utils} from 'avcore/client/dist';
+import {CloudClient,Utils} from 'avcore/client';
 ```
 This package has frontend-only classes
 
