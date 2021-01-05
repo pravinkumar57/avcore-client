@@ -62,7 +62,8 @@ export declare enum STAT {
     STATS = "stats",
     TRAFFIC = "traffic",
     CPU = "cpu",
-    STREAM = "stream"
+    STREAM = "stream",
+    MCU = "mcu"
 }
 export declare const HLS: {
     ROOT: string;
