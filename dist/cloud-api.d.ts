@@ -6,6 +6,6 @@ export declare class CloudApi {
     private readonly token;
     private readonly log;
     constructor(url: string, token: string, log?: typeof console.log);
-    create(operation: API_OPERATION): Promise<MediasoupSocketApi>;
+    create(operation: API_OPERATION, mixerId?: string): Promise<MediasoupSocketApi>;
     streamOrigin(api: MediasoupSocketApi, stream: string): Promise<ConsumeRequestOriginData | undefined>;
 }

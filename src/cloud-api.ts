@@ -11,8 +11,8 @@ export class CloudApi {
         this.token=token;
         this.log=log;
     }
-    async create(operation:API_OPERATION):Promise<MediasoupSocketApi> {
-        const {data:{config:{url, worker, token}}} =  await axios.post(`${this.url}/api/customer/config/api`,{operation},{
+    async create(operation:API_OPERATION,mixerId?:string):Promise<MediasoupSocketApi> {
+        const {data:{config:{url, worker, token}}} =  await axios.post(`${this.url}/api/customer/config/api`,{operation,mixerId},{
             headers: { 'Content-Type': 'application/json', "Authorization":`Bearer ${this.token}` },
         });
         return new MediasoupSocketApi(url, worker, token,this.log,this)
