@@ -62,7 +62,10 @@ export declare enum STAT {
     STATS = "stats",
     TRAFFIC = "traffic",
     CPU = "cpu",
-    STREAM = "stream",
+    STREAM = "stream"
+}
+export declare enum INFO {
+    INFO = "info",
     MCU = "mcu"
 }
 export declare const HLS: {

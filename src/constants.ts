@@ -77,8 +77,11 @@ export enum STAT {
     STATS="stats",
     TRAFFIC='traffic',
     CPU='cpu',
-    STREAM='stream',
-    MCU="mcu"
+    STREAM='stream'
+}
+export enum INFO {
+    INFO="info",
+    MCU='mcu'
 }
 export const HLS={
     ROOT:'hls',
