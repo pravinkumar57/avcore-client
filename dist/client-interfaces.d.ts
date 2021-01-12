@@ -260,6 +260,7 @@ export interface StreamListData {
 }
 export interface StorageItem {
     key: string;
+    fullKey: string;
     lastModified: number;
 }
 export interface ListRecordingItem extends StorageItem {
