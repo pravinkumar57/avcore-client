@@ -49,7 +49,8 @@ export declare enum ACTION {
     MIXER_PIPE_START = "mixerPipeStart",
     MIXER_PIPE_STOP = "mixerPipeStop",
     MIXER_COMMAND = "mixerCommand",
-    LISTEN_MIXER_STOPPED = "listenMixerStopped"
+    LISTEN_MIXER_STOPPED = "listenMixerStopped",
+    HEAP_SNAPSHOT = "heapSnapshot"
 }
 export declare const SOCKET_ONLY_ACTIONS: ACTION[];
 export declare const REST_ACTIONS: ACTION[];

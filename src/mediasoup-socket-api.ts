@@ -268,6 +268,9 @@ export class MediasoupSocketApi implements IMediasoupApi{
     async listenMixerStopped(json:MixerInput):Promise<boolean>{
         return (await this.request(ACTION.LISTEN_MIXER_STOPPED,json) as boolean);
     }
+    async heapSnapshot():Promise<void>{
+        await this.request(ACTION.HEAP_SNAPSHOT);
+    }
     hlsUrl(pipeId:string){
         return `${this.url}/${HLS.ROOT}/${pipeId}/${HLS.PLAYLIST}`
     }
