@@ -152,6 +152,9 @@ export interface MixerCreateOptions extends SizeData{
     audioSampleRate?:number
     audioChannels?:number
 }
+export interface MixerStartOptions extends MixerCreateOptions{
+    closeOnDisconnected?:number
+}
 export interface StreamingOptions extends BitrateOptions,MixerCreateOptions{
 }
 export interface KindsByFileInput{

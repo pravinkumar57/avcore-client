@@ -50,7 +50,7 @@ import {
     MixerPipeRtmpData,
     MixerPipeRecordingData,
     MixerPipeStopInput,
-    MixerCreateOptions,
+    MixerStartOptions,
     Omit,
     MixerPipeHlsData,
     LiveToHlsRequest,
@@ -235,7 +235,7 @@ export class MediasoupSocketApi implements IMediasoupApi{
     async liveToHls(json:LiveToHlsRequest):Promise<MixerPipeInput>{
         return (await this.request(ACTION.LIVE_TO_HLS,json) as MixerPipeInput);
     }
-    async mixerStart(json:MixerCreateOptions):Promise<MixerInput>{
+    async mixerStart(json:MixerStartOptions):Promise<MixerInput>{
         return (await this.request(ACTION.MIXER_START,json) as MixerInput);
     }
     async mixerClose(json:MixerInput):Promise<void>{
@@ -291,7 +291,8 @@ export class MediasoupSocketApi implements IMediasoupApi{
     }
     private async request(action:ACTION,json={}):Promise<object|boolean|void>{
         if(!this.closed){
-            if(!this._client && !SOCKET_ONLY_ACTIONS.includes(action)){
+            if(!this._client && !SOCKET_ONLY_ACTIONS.includes(action)
+                && (action!==ACTION.MIXER_START || !(json as MixerStartOptions).closeOnDisconnected)){
                 return this.restRequest(action,json)
             }
             else {
