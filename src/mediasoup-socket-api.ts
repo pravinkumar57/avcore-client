@@ -274,6 +274,9 @@ export class MediasoupSocketApi implements IMediasoupApi{
     hlsUrl(pipeId:string){
         return `${this.url}/${HLS.ROOT}/${pipeId}/${HLS.PLAYLIST}`
     }
+    location(){
+        return this.url
+    }
     streamOrigin(source:ConsumeRequestOriginDataServer):ConsumeRequestOriginData|undefined{
         if(source && source.url!==this.url){
             const {url,token,worker}=this;
