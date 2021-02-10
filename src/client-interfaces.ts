@@ -331,6 +331,7 @@ export interface HlsData{
 export interface MixerPipeHlsData extends MixerPipeData,HlsData{
     type:MIXER_PIPE_TYPE.HLS
     formats:MixerHlsFormatOptions[]
+    location?:string
 }
 export interface MixerPipeRtmpData extends MixerPipeData{
     type:MIXER_PIPE_TYPE.RTMP
