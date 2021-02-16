@@ -53,7 +53,7 @@ import {
     LiveToHlsRequest,
     MixerAddAudioFileData,
     MixerAddVideoFileData,
-    StreamKindOrigin, MixerCommandInput, ListRecordingsData, MixerStartOptions
+    StreamKindOrigin, MixerCommandInput, ListRecordingsData, MixerStartOptions, MixerFileData
 } from './client-interfaces';
 export interface IMediasoupApiClient {
     on(event: 'error', listener: (error) => void): this
@@ -62,6 +62,8 @@ export interface IMediasoupApiClient {
     on(event: EVENT.STREAM_STARTED, listener: (json:StreamKindOrigin) => void): this
     on(event: EVENT.STREAM_STOPPED, listener: (json:StreamKindOrigin) => void): this
     on(event: EVENT.MIXER_STOPPED, listener: (json:MixerInput) => void): this
+    on(event: EVENT.MIXER_FILE_STARTED, listener: (json:MixerFileData) => void): this
+    on(event: EVENT.MIXER_FILE_STOPPED, listener: (json:MixerFileData) => void): this
 }
 export interface IMediasoupApi extends Record<ACTION, (json:{})=>Promise<{}|void>>{
     readonly client:IMediasoupApiClient;

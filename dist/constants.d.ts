@@ -57,7 +57,9 @@ export declare const REST_ACTIONS: ACTION[];
 export declare enum EVENT {
     STREAM_STARTED = "streamStarted",
     STREAM_STOPPED = "streamStopped",
-    MIXER_STOPPED = "mixerStopped"
+    MIXER_STOPPED = "mixerStopped",
+    MIXER_FILE_STARTED = "mixerFileStarted",
+    MIXER_FILE_STOPPED = "mixerFileStopped"
 }
 export declare enum STAT {
     STATS = "stats",

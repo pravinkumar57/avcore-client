@@ -72,7 +72,9 @@ export const REST_ACTIONS:ACTION[]=Object.values(ACTION).filter(a=>!SOCKET_ONLY_
 export enum EVENT {
     STREAM_STARTED='streamStarted',
     STREAM_STOPPED='streamStopped',
-    MIXER_STOPPED='mixerStopped'
+    MIXER_STOPPED='mixerStopped',
+    MIXER_FILE_STARTED='mixerFileStarted',
+    MIXER_FILE_STOPPED='mixerFileStopped'
 }
 export enum STAT {
     STATS="stats",
