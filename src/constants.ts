@@ -50,6 +50,8 @@ export enum ACTION {
     MIXER_PIPE_STOP='mixerPipeStop',
     MIXER_COMMAND='mixerCommand',
     LISTEN_MIXER_STOPPED='listenMixerStopped',
+    LISTEN_MIXER_FILE_STARTED='listenMixerFileStarted',
+    LISTEN_MIXER_FILE_STOPPED='listenMixerFileStopped',
     HEAP_SNAPSHOT='heapSnapshot'
 }
 export const SOCKET_ONLY_ACTIONS:ACTION[]=[

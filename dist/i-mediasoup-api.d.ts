@@ -1,6 +1,6 @@
 import { TransportOptions } from 'mediasoup-client/lib/Transport';
 import { ACTION, EVENT } from './constants';
-import { ConnectTransportRequest, ConsumerData, ConsumeRequest, ConsumeResponse, ConsumerPreferredLayers, NumWorkersData, PipeFromRemoteProducerRequest, PipeToRemoteProducerRequest, PipeTransportConnectData, PipeTransportData, ProducerData, ProduceRequest, ProduceResponse, ServerConfigs, RecordingData, StatsInput, StatsOutput, StreamFileRequest, TransportBitrateData, TransportData, WorkerLoadData, StreamListData, StreamData, FilePathInput, PullStreamInputsRequest, PushStreamInputsRequest, PullStreamInputsResponse, PushStreamInputsResponse, RecordingRequest, StreamKindsData, KindsByFileInput, KindsOptionsData, PushStreamOptionsResponse, PushStreamOptionsRequest, PushStreamRequest, LiveStreamRequest, StreamKindData, StreamListenData, MixerInput, MixerAddAudioData, MixerAddVideoData, MixerUpdateData, MixerRemoveData, MixerPipeLiveData, MixerPipeRecordingData, MixerPipeRtmpData, MixerPipeInput, MixerPipeStopInput, MixerPipeHlsData, LiveToHlsRequest, MixerAddAudioFileData, MixerAddVideoFileData, StreamKindOrigin, MixerCommandInput, ListRecordingsData, MixerStartOptions, MixerFileData } from './client-interfaces';
+import { ConnectTransportRequest, ConsumerData, ConsumeRequest, ConsumeResponse, ConsumerPreferredLayers, NumWorkersData, PipeFromRemoteProducerRequest, PipeToRemoteProducerRequest, PipeTransportConnectData, PipeTransportData, ProducerData, ProduceRequest, ProduceResponse, ServerConfigs, RecordingData, StatsInput, StatsOutput, StreamFileRequest, TransportBitrateData, TransportData, WorkerLoadData, StreamListData, StreamData, FilePathInput, PullStreamInputsRequest, PushStreamInputsRequest, PullStreamInputsResponse, PushStreamInputsResponse, RecordingRequest, StreamKindsData, KindsByFileInput, KindsOptionsData, PushStreamOptionsResponse, PushStreamOptionsRequest, PushStreamRequest, LiveStreamRequest, StreamKindData, StreamListenData, MixerInput, MixerAddAudioData, MixerAddVideoData, MixerUpdateData, MixerRemoveData, MixerPipeLiveData, MixerPipeRecordingData, MixerPipeRtmpData, MixerPipeInput, MixerPipeStopInput, MixerPipeHlsData, LiveToHlsRequest, MixerAddAudioFileData, MixerAddVideoFileData, StreamKindOrigin, MixerCommandInput, ListRecordingsData, MixerStartOptions, MixerFileData, MixerStreamData } from './client-interfaces';
 export interface IMediasoupApiClient {
     on(event: 'error', listener: (error: any) => void): this;
     on(event: 'connect', listener: (data: any) => void): this;
@@ -63,5 +63,7 @@ export interface IMediasoupApi extends Record<ACTION, (json: {}) => Promise<{} |
     [ACTION.MIXER_PIPE_STOP](json: MixerPipeStopInput): Promise<void>;
     [ACTION.MIXER_COMMAND](json: MixerCommandInput): Promise<void>;
     [ACTION.LISTEN_MIXER_STOPPED](json: MixerInput): Promise<boolean>;
+    [ACTION.LISTEN_MIXER_FILE_STARTED](json: MixerStreamData): Promise<boolean>;
+    [ACTION.LISTEN_MIXER_FILE_STOPPED](json: MixerStreamData): Promise<boolean>;
     [ACTION.HEAP_SNAPSHOT](): Promise<void>;
 }

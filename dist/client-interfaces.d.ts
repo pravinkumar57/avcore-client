@@ -318,6 +318,8 @@ export interface MixerPipeData extends MixerInput, KindsData {
 }
 export interface MixerFileData extends MixerInput, StreamKindsData {
 }
+export interface MixerStreamData extends MixerInput, StreamData {
+}
 export interface MixerHlsFormatOptions extends SizeData {
     videoBitrate: number;
 }

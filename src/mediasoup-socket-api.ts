@@ -57,7 +57,7 @@ import {
     MixerAddVideoFileData,
     MixerAddAudioFileData,
     MixerCommandInput,
-    ListRecordingsData, ConsumeRequestOriginDataServer, ConsumeRequestOriginData
+    ListRecordingsData, ConsumeRequestOriginDataServer, ConsumeRequestOriginData, MixerStreamData
 } from './client-interfaces';
 import {TransportOptions} from 'mediasoup-client/lib/Transport';
 import {IMediasoupApi, IMediasoupApiClient} from './i-mediasoup-api';
@@ -267,6 +267,12 @@ export class MediasoupSocketApi implements IMediasoupApi{
     }
     async listenMixerStopped(json:MixerInput):Promise<boolean>{
         return (await this.request(ACTION.LISTEN_MIXER_STOPPED,json) as boolean);
+    }
+    async listenMixerFileStarted(json:MixerStreamData):Promise<boolean>{
+        return (await this.request(ACTION.LISTEN_MIXER_FILE_STARTED,json) as boolean);
+    }
+    async listenMixerFileStopped(json:MixerStreamData):Promise<boolean>{
+        return (await this.request(ACTION.LISTEN_MIXER_FILE_STOPPED,json) as boolean);
     }
     async heapSnapshot():Promise<void>{
         await this.request(ACTION.HEAP_SNAPSHOT);
