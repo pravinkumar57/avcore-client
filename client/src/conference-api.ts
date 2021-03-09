@@ -56,7 +56,7 @@ export class ConferenceApi extends EventEmitter{
         };
         this.log=debug(`conference-api [${this.configs.stream}]:`);
         this.createClient();
-        this.device = new Device();
+        this.device = new Device({handlerName:configs.deviceHandlerName});
     }
     async setPreferredLayers(layers:ConsumerLayers):Promise<void>{
         if(this.operation===API_OPERATION.SUBSCRIBE){

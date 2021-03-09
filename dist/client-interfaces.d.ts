@@ -236,12 +236,14 @@ export interface ConferenceBasicInput {
         video?: ProducerVideoCodecOptions;
     };
 }
+export declare type BuiltinHandlerName = 'Chrome74' | 'Chrome70' | 'Chrome67' | 'Chrome55' | 'Firefox60' | 'Safari12' | 'Safari11' | 'Edge11' | 'ReactNative';
 export interface ConferenceInput extends ConferenceBasicInput {
     worker?: number;
     url: string;
     origin?: ConferenceInputOrigin;
     stream: string;
     token: string;
+    deviceHandlerName?: BuiltinHandlerName;
 }
 export interface ConferenceConfigTimeout {
     stats: number;
