@@ -13,7 +13,7 @@ export class Utils{
         }
     }
     static isFirefox = typeof (window as any).InstallTrigger !== 'undefined';
-    static isOpera = !!(window as any).opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+    static isOpera = !!(window as any).opera || (navigator.userAgent && navigator.userAgent.indexOf(' OPR/') >= 0);
     static isChrome = !!(window as any).chrome && ! Utils.isOpera;
     static isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
     static hlsPlaylistPath(pipeId:string):string{
