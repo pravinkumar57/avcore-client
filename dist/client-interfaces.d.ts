@@ -141,6 +141,7 @@ export interface StreamFileRequest extends StreamKindsData, KindsByFileInput, St
 export interface LiveStreamRequest extends StreamKindsData, StreamingOptions, PushSimulcastInput {
     url: string;
     restartOnExit?: boolean;
+    restartTimeout?: number;
 }
 export interface BitrateOptions {
     videoBitrate?: string;
