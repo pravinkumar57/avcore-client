@@ -360,7 +360,7 @@ export class ConferenceApi extends EventEmitter{
                         setTimeout(getStats, this.configs.timeout.stats);
                     }
 
-                });
+                }).catch(()=>{});
             }
         };
         getStats();
