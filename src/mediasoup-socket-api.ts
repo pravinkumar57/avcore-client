@@ -245,7 +245,7 @@ export class MediasoupSocketApi implements IMediasoupApi{
         return (await this.request(ACTION.ALLOCATE_PORT) as TcpPortData);
     }
     async releasePort(json:TcpPortData):Promise<void>{
-        await this.request(ACTION.RELEASE_PORT);
+        await this.request(ACTION.RELEASE_PORT,json);
     }
     async mixerStart(json:MixerStartOptions):Promise<MixerInput>{
         return (await this.request(ACTION.MIXER_START,json) as MixerInput);
