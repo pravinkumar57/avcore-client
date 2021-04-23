@@ -53,7 +53,13 @@ import {
     LiveToHlsRequest,
     MixerAddAudioFileData,
     MixerAddVideoFileData,
-    StreamKindOrigin, MixerCommandInput, ListRecordingsData, MixerStartOptions, MixerStreamData
+    StreamKindOrigin,
+    MixerCommandInput,
+    ListRecordingsData,
+    MixerStartOptions,
+    MixerStreamData,
+    MixerAddVideoTcpData,
+    MixerAddAudioTcpData, PortData
 } from './client-interfaces';
 export interface IMediasoupApiClient {
     on(event: 'error', listener: (error) => void): this
@@ -107,10 +113,13 @@ export interface IMediasoupApi extends Record<ACTION, (json:{})=>Promise<{}|void
     [ACTION.REQUEST_KEYFRAME](json:ConsumerData):Promise<void>
     [ACTION.LISTEN_STREAM_STARTED](json:StreamListenData):Promise<boolean>
     [ACTION.LISTEN_STREAM_STOPPED](json:StreamKindData):Promise<boolean>
+    [ACTION.ALLOCATE_PORT]():Promise<PortData>
+    [ACTION.RELEASE_PORT](json:PortData):Promise<void>
     [ACTION.MIXER_START](json:MixerStartOptions):Promise<MixerInput>
     [ACTION.MIXER_CLOSE](json:MixerInput):Promise<void>
     [ACTION.MIXER_ADD](json:MixerAddAudioData|MixerAddVideoData):Promise<void>
     [ACTION.MIXER_ADD_FILE](json:MixerAddVideoFileData|MixerAddAudioFileData):Promise<void>
+    [ACTION.MIXER_ADD_TCP](json:MixerAddVideoTcpData|MixerAddAudioTcpData):Promise<void>
     [ACTION.MIXER_UPDATE](json:MixerUpdateData):Promise<void>
     [ACTION.MIXER_REMOVE](json:MixerRemoveData):Promise<void>
     [ACTION.MIXER_PIPE_START](json:MixerPipeLiveData|MixerPipeRecordingData|MixerPipeRtmpData|MixerPipeHlsData):Promise<MixerPipeInput>

@@ -309,6 +309,20 @@ export interface MixerAddFileData extends MixerPipeData, StreamData, KindsByFile
         [kind in MediaKind]?: string[];
     };
 }
+export interface PortData {
+    port: number;
+}
+export interface MixerAddTcpData extends MixerInput, PortData {
+}
+export interface MixerAddVideoTcpData extends MixerOptionsData, MixerAddTcpData {
+    kind: 'video';
+}
+export interface MixerAddAudioTcpData extends MixerAddTcpData {
+    kind: 'audio';
+}
+export interface MixerAddAudioFileData extends MixerAddFileData {
+    kinds: ['audio'];
+}
 export interface MixerAddVideoFileData extends MixerAddFileData, MixerOptionsData {
     kinds: undefined | ['video'] | ['audio', 'video'] | ['video', 'audio'];
 }

@@ -57,7 +57,12 @@ import {
     MixerAddVideoFileData,
     MixerAddAudioFileData,
     MixerCommandInput,
-    ListRecordingsData, ConsumeRequestOriginDataServer, ConsumeRequestOriginData, MixerStreamData
+    ListRecordingsData,
+    ConsumeRequestOriginDataServer,
+    ConsumeRequestOriginData,
+    MixerStreamData,
+    PortData,
+    MixerAddVideoTcpData, MixerAddAudioTcpData
 } from './client-interfaces';
 import {TransportOptions} from 'mediasoup-client/lib/Transport';
 import {IMediasoupApi, IMediasoupApiClient} from './i-mediasoup-api';
@@ -235,6 +240,12 @@ export class MediasoupSocketApi implements IMediasoupApi{
     async liveToHls(json:LiveToHlsRequest):Promise<MixerPipeInput>{
         return (await this.request(ACTION.LIVE_TO_HLS,json) as MixerPipeInput);
     }
+    async allocatePort():Promise<PortData>{
+        return (await this.request(ACTION.ALLOCATE_PORT) as PortData);
+    }
+    async releasePort(json:PortData):Promise<void>{
+        await this.request(ACTION.RELEASE_PORT);
+    }
     async mixerStart(json:MixerStartOptions):Promise<MixerInput>{
         return (await this.request(ACTION.MIXER_START,json) as MixerInput);
     }
@@ -246,6 +257,9 @@ export class MediasoupSocketApi implements IMediasoupApi{
             json.origin=await this.cloudApi.streamOrigin(this,json.stream)
         }
         await this.request(ACTION.MIXER_ADD,json);
+    }
+    async mixerAddTcp(json:MixerAddVideoTcpData|MixerAddAudioTcpData):Promise<void>{
+        await this.request(ACTION.MIXER_ADD_TCP,json);
     }
     async mixerAddFile(json:MixerAddVideoFileData|MixerAddAudioFileData):Promise<void>{
         await this.request(ACTION.MIXER_ADD_FILE,json);
