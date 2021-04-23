@@ -320,7 +320,7 @@ export interface MixerAddFileData extends MixerPipeData,StreamData,KindsByFileIn
 export interface PortData {
     port:number
 }
-export interface MixerAddTcpData extends MixerInput,PortData {
+export interface MixerAddTcpData extends MixerInput,PortData,StreamData {
 }
 export interface MixerAddVideoTcpData extends MixerOptionsData,MixerAddTcpData{
     kind:'video'
