@@ -309,10 +309,10 @@ export interface MixerAddFileData extends MixerPipeData, StreamData, KindsByFile
         [kind in MediaKind]?: string[];
     };
 }
-export interface PortData {
+export interface TcpPortData {
     port: number;
 }
-export interface MixerAddTcpData extends MixerInput, PortData, StreamData {
+export interface MixerAddTcpData extends MixerInput, TcpPortData, StreamData {
 }
 export interface MixerAddVideoTcpData extends MixerOptionsData, MixerAddTcpData {
     kind: 'video';
