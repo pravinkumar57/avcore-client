@@ -320,9 +320,12 @@ export interface MixerAddFileData extends MixerPipeData,StreamData,KindsByFileIn
 export interface TcpPortData {
     port:number
 }
+export interface TransparencyData {
+    hasTransparency?:boolean
+}
 export interface MixerAddTcpData extends MixerInput,TcpPortData,StreamData {
 }
-export interface MixerAddVideoTcpData extends MixerOptionsData,MixerAddTcpData{
+export interface MixerAddVideoTcpData extends MixerOptionsData,MixerAddTcpData,TransparencyData{
     kind:'video'
 }
 export interface MixerAddAudioTcpData extends MixerAddTcpData{
@@ -331,7 +334,7 @@ export interface MixerAddAudioTcpData extends MixerAddTcpData{
 export interface MixerAddAudioFileData extends MixerAddFileData{
     kinds:['audio']
 }
-export interface MixerAddVideoFileData extends MixerAddFileData,MixerOptionsData{
+export interface MixerAddVideoFileData extends MixerAddFileData,MixerOptionsData,TransparencyData{
     kinds:undefined|['video']|['audio','video']|['video','audio']
 }
 export interface MixerAddAudioFileData extends MixerAddFileData{
