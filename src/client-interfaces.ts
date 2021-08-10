@@ -355,6 +355,11 @@ export interface MixerPipeLiveData extends MixerPipeData,StreamData,PushSimulcas
 export interface MixerPipeRecordingData extends MixerPipeData{
     type:MIXER_PIPE_TYPE.RECORDING
 }
+export interface MixerPipePortData extends MixerInput{
+    type: MIXER_PIPE_TYPE.PORT,
+    kind: MediaKind,
+    port: number
+}
 export interface HlsData{
     formats?:MixerHlsFormatOptions[]
     numChunks?:number
