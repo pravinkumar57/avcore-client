@@ -111,7 +111,8 @@ export declare enum MIXER_PIPE_TYPE {
     LIVE = 0,
     RECORDING = 1,
     RTMP = 2,
-    HLS = 3
+    HLS = 3,
+    PORT = 4
 }
 export declare enum MIXER_RENDER_TYPE {
     SCALE = "scale",
