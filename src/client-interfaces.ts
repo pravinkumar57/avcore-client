@@ -142,6 +142,7 @@ export interface StreamFileRequest extends StreamKindsData,KindsByFileInput,Stre
 }
 export interface LiveStreamRequest extends StreamKindsData,StreamingOptions,PushSimulcastInput{
     url:string
+    rwTimeout?:number
     restartOnExit?:boolean
     restartTimeout?:number
 }
