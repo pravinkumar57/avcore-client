@@ -347,10 +347,13 @@ export interface MixerPipeData extends MixerInput,KindsData {
 }
 export interface MixerStreamData extends MixerInput,StreamData {
 }
-export interface MixerHlsFormatBitrateOptions extends SizeData{
-    videoBitrate: number
+export interface MixerHlsFormatPresetOptions extends SizeData{
+    preset?: 'ultrafast' |  'superfast' |  'veryfast' |  'faster' |  'fast' |  'medium' |  'slow' |  'slower' |  'veryslow'
 }
-export interface MixerHlsFormatCrfOptions extends SizeData{
+export interface MixerHlsFormatBitrateOptions extends MixerHlsFormatPresetOptions{
+    videoBitrate?: number
+}
+export interface MixerHlsFormatCrfOptions extends MixerHlsFormatPresetOptions{
     crf: number
 }
 export type MixerHlsFormatOptions=MixerHlsFormatBitrateOptions|MixerHlsFormatCrfOptions
