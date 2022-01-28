@@ -347,9 +347,13 @@ export interface MixerPipeData extends MixerInput,KindsData {
 }
 export interface MixerStreamData extends MixerInput,StreamData {
 }
-export interface MixerHlsFormatOptions extends SizeData{
+export interface MixerHlsFormatBitrateOptions extends SizeData{
     videoBitrate: number
 }
+export interface MixerHlsFormatCrfOptions extends SizeData{
+    crf: number
+}
+export type MixerHlsFormatOptions=MixerHlsFormatBitrateOptions|MixerHlsFormatCrfOptions
 export interface MixerPipeLiveData extends MixerPipeData,StreamData,PushSimulcastInput,BitrateOptions{
     type:MIXER_PIPE_TYPE.LIVE
 }
