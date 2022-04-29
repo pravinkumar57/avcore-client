@@ -1,4 +1,4 @@
-import io from 'socket.io-client';
+import {io,Socket} from 'socket.io-client';
 import {default as axios} from 'axios';
 import {ACTION, ERROR, HLS, PATH, SOCKET_ONLY_ACTIONS} from './constants';
 import {
@@ -68,7 +68,7 @@ import {
 import {TransportOptions} from 'mediasoup-client/lib/Transport';
 import {IMediasoupApi, IMediasoupApiClient} from './i-mediasoup-api';
 import {CloudApi} from './cloud-api';
-export interface ApiSocket extends Omit< SocketIOClient.Socket, "on">,IMediasoupApiClient{
+export interface ApiSocket extends Omit< Socket, "on">,IMediasoupApiClient{
 }
 export class MediasoupSocketApi implements IMediasoupApi{
     private readonly log:typeof console.log;
@@ -90,7 +90,7 @@ export class MediasoupSocketApi implements IMediasoupApi{
             this._client = io(this.url, {
                 path:"",
                 transports:['websocket'],
-                query: `auth_token=${this.token}&mediasoup_worker=${this.worker}`,
+                query: {auth_token:this.token,mediasoup_worker:this.worker},
                 forceNew: true
             }) as ApiSocket;
         }
@@ -295,7 +295,7 @@ export class MediasoupSocketApi implements IMediasoupApi{
     hlsUrl(pipeId:string){
         return `${this.url}/${HLS.ROOT}/${pipeId}/${HLS.PLAYLIST}`
     }
-    location(){
+    location():string{
         return this.url
     }
     streamOrigin(source:ConsumeRequestOriginDataServer):ConsumeRequestOriginData|undefined{

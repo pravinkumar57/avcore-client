@@ -1,9 +1,9 @@
-/// <reference types="socket.io-client" />
+import { Socket } from 'socket.io-client';
 import { ConnectTransportRequest, ConsumerData, ConsumeRequest, ConsumeResponse, ConsumerPreferredLayers, NumWorkersData, PipeFromRemoteProducerRequest, PipeToRemoteProducerRequest, PipeTransportConnectData, PipeTransportData, ProducerData, ProduceRequest, ProduceResponse, ServerConfigs, RecordingData, StatsInput, StatsOutput, StreamFileRequest, TransportBitrateData, TransportData, WorkerLoadData, StreamListData, StreamData, FilePathInput, PushStreamInputsRequest, PushStreamInputsResponse, PullStreamInputsRequest, PullStreamInputsResponse, RecordingRequest, StreamKindsData, LiveStreamRequest, KindsByFileInput, KindsOptionsData, PushStreamOptionsRequest, PushStreamOptionsResponse, PushStreamRequest, StreamKindData, StreamListenData, MixerUpdateData, MixerRemoveData, MixerInput, MixerAddAudioData, MixerAddVideoData, MixerPipeLiveData, MixerPipeInput, MixerPipeRtmpData, MixerPipeRecordingData, MixerPipeStopInput, MixerStartOptions, Omit, MixerPipeHlsData, LiveToHlsRequest, MixerAddVideoFileData, MixerAddAudioFileData, MixerCommandInput, ListRecordingsData, ConsumeRequestOriginDataServer, ConsumeRequestOriginData, MixerStreamData, MixerAddVideoTcpData, MixerAddAudioTcpData, TcpPortData, MixerPipePortData } from './client-interfaces';
 import { TransportOptions } from 'mediasoup-client/lib/Transport';
 import { IMediasoupApi, IMediasoupApiClient } from './i-mediasoup-api';
 import { CloudApi } from './cloud-api';
-export interface ApiSocket extends Omit<SocketIOClient.Socket, "on">, IMediasoupApiClient {
+export interface ApiSocket extends Omit<Socket, "on">, IMediasoupApiClient {
 }
 export declare class MediasoupSocketApi implements IMediasoupApi {
     private readonly log;
