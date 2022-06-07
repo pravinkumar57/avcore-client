@@ -377,6 +377,9 @@ export interface MixerPipeHlsData extends MixerPipeData,HlsData{
     type:MIXER_PIPE_TYPE.HLS
     formats:MixerHlsFormatOptions[]
     location?:string
+    outputUrl?:string
+    playlistType?:'event'|'vod'
+    publishMethod?:string
 }
 export interface MixerPipeRtmpData extends MixerPipeData{
     type:MIXER_PIPE_TYPE.RTMP
