@@ -347,7 +347,7 @@ export interface MixerPipeData extends MixerInput,KindsData {
 }
 export interface MixerStreamData extends MixerInput,StreamData {
 }
-export interface MixerHlsFormatPresetOptions extends SizeData{
+export interface MixerHlsFormatPresetOptions extends SizeData,KindsData{
     preset?: 'ultrafast' |  'superfast' |  'veryfast' |  'faster' |  'fast' |  'medium' |  'slow' |  'slower' |  'veryslow'
 }
 export interface MixerHlsFormatBitrateOptions extends MixerHlsFormatPresetOptions{
