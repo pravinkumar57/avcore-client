@@ -136,9 +136,15 @@ export interface StreamFileRequestOptions {
     restartOnExit?: boolean;
     additionalInputOptions?: string[];
 }
-export interface StreamFileRequest extends StreamKindsData, KindsByFileInput, StreamingOptions, PushSimulcastInput, StreamFileRequestOptions {
+export declare type CodecCopyKinds = {
+    [kind in MediaKind]?: boolean;
+};
+export interface CodecCopyOption {
+    codecCopy?: CodecCopyKinds;
 }
-export interface LiveStreamRequest extends StreamKindsData, StreamingOptions, PushSimulcastInput {
+export interface StreamFileRequest extends StreamKindsData, KindsByFileInput, StreamingOptions, PushSimulcastInput, StreamFileRequestOptions, CodecCopyOption {
+}
+export interface LiveStreamRequest extends StreamKindsData, StreamingOptions, PushSimulcastInput, CodecCopyOption {
     url: string;
     rwTimeout?: number;
     restartOnExit?: boolean;
