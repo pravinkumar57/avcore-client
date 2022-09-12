@@ -200,6 +200,12 @@ export interface PushStreamRequest extends StreamKindsData {
     app?: string;
     stdIn?: string;
 }
+export interface StreamingPortsData {
+    listenIp: string;
+    tcpPorts: {
+        [kind in MediaKind]?: number;
+    };
+}
 export interface TransportListenIp {
     ip: string;
     announcedIp?: string;
