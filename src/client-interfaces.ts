@@ -150,6 +150,9 @@ export interface LiveStreamRequest extends StreamKindsData,StreamingOptions,Push
     restartOnExit?:boolean
     restartTimeout?:number
 }
+export interface TcpStreamingRequest extends StreamKindsData{
+
+}
 export interface BitrateOptions {
     videoBitrate?: string
 }

@@ -14,6 +14,7 @@ export enum ACTION {
     FILE_STREAMING='fileStreaming',
     LIVE_STREAMING='liveStreaming',
     LIVE_TO_HLS='liveToHls',
+    TCP_STREAMING='tcpStreaming',
     STOP_FILE_STREAMING='stopFileStreaming',
     START_RECORDING="startRecording",
     STOP_RECORDING="stopRecording",
