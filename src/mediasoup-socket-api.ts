@@ -63,7 +63,7 @@ import {
     MixerStreamData,
     MixerAddVideoTcpData,
     MixerAddAudioTcpData,
-    TcpPortData, MixerPipePortData, TcpStreamingRequest
+    TcpPortData, MixerPipePortData, TcpStreamingRequest, StreamingPortsData
 } from './client-interfaces';
 import {TransportOptions} from 'mediasoup-client/lib/Transport';
 import {IMediasoupApi, IMediasoupApiClient} from './i-mediasoup-api';
@@ -241,8 +241,8 @@ export class MediasoupSocketApi implements IMediasoupApi{
     async liveToHls(json:LiveToHlsRequest):Promise<MixerPipeInput>{
         return (await this.request(ACTION.LIVE_TO_HLS,json) as MixerPipeInput);
     }
-    async tcpStreaming(json:TcpStreamingRequest):Promise<PushStreamOptionsResponse>{
-        return (await this.request(ACTION.TCP_STREAMING,json) as PushStreamOptionsResponse);
+    async tcpStreaming(json:TcpStreamingRequest):Promise<StreamingPortsData>{
+        return (await this.request(ACTION.TCP_STREAMING,json) as StreamingPortsData);
     }
     async allocatePort():Promise<TcpPortData>{
         return (await this.request(ACTION.ALLOCATE_PORT) as TcpPortData);
