@@ -151,15 +151,22 @@ export interface LiveStreamRequest extends StreamKindsData,StreamingOptions,Push
     restartTimeout?:number
 }
 export interface TcpStreamingRequest extends StreamKindsData{
-
+    formats:{
+        audio?: AudioFormatOptions
+        video?: VideoFormatOptions & BitrateOptions
+    }
 }
 export interface BitrateOptions {
     videoBitrate?: string
 }
-export interface MixerCreateOptions extends SizeData{
-    frameRate?:number
+export interface AudioFormatOptions{
     audioSampleRate?:number
     audioChannels?:number
+}
+export interface VideoFormatOptions extends SizeData{
+    frameRate?:number
+}
+export interface MixerCreateOptions extends VideoFormatOptions,AudioFormatOptions{
 }
 export interface MixerStartOptions extends MixerCreateOptions{
     closeOnDisconnected?:number

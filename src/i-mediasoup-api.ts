@@ -60,7 +60,7 @@ import {
     MixerStreamData,
     MixerAddVideoTcpData,
     MixerAddAudioTcpData,
-    TcpPortData, MixerPipePortData
+    TcpPortData, MixerPipePortData, TcpStreamingRequest, StreamingPortsData
 } from './client-interfaces';
 export interface IMediasoupApiClient {
     on(event: 'error', listener: (error) => void): this
@@ -91,6 +91,7 @@ export interface IMediasoupApi extends Record<ACTION, (json:{})=>Promise<{}|void
     [ACTION.FILE_STREAMING](json:StreamFileRequest):Promise<void>
     [ACTION.LIVE_STREAMING](json:LiveStreamRequest):Promise<void>
     [ACTION.LIVE_TO_HLS](json:LiveToHlsRequest):Promise<MixerPipeInput>
+    [ACTION.TCP_STREAMING](json:TcpStreamingRequest):Promise<StreamingPortsData>
     [ACTION.STOP_FILE_STREAMING](json:StreamKindsData):Promise<void>
     [ACTION.START_RECORDING](json:RecordingRequest):Promise<void>
     [ACTION.STOP_RECORDING](json:RecordingData):Promise<void>
