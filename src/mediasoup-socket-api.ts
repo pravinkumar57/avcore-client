@@ -166,6 +166,9 @@ export class MediasoupSocketApi implements IMediasoupApi{
     async producersStats(json:StatsInput):Promise<StatsOutput>{
         return (await this.request(ACTION.PRODUCERS_STATS, json)) as StatsOutput;
     }
+    async producersStatsByStream(json:StreamData):Promise<StatsOutput>{
+        return (await this.request(ACTION.PRODUCERS_STATS_BY_STREAM, json)) as StatsOutput;
+    }
     async consumersStats(json:StatsInput):Promise<StatsOutput>{
         return (await this.request(ACTION.CONSUMERS_STATS, json)) as StatsOutput;
     }

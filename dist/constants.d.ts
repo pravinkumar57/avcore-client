@@ -23,6 +23,7 @@ export declare enum ACTION {
     SET_PREFERRED_LAYERS = "setPreferredLayers",
     SET_MAX_INCOMING_BITRATE = "setMaxIncomingBitrate",
     PRODUCERS_STATS = "producersStats",
+    PRODUCERS_STATS_BY_STREAM = "producersStatsByStream",
     CONSUMERS_STATS = "consumersStats",
     TRANSPORT_STATS = "transportStats",
     PIPE_TO_REMOTE_PRODUCER = "pipeToRemoteProducer",

@@ -33,6 +33,7 @@ export declare class MediasoupSocketApi implements IMediasoupApi {
     connectTransport(json: ConnectTransportRequest): Promise<void>;
     setMaxIncomingBitrate(json: TransportBitrateData): Promise<void>;
     producersStats(json: StatsInput): Promise<StatsOutput>;
+    producersStatsByStream(json: StreamData): Promise<StatsOutput>;
     consumersStats(json: StatsInput): Promise<StatsOutput>;
     transportStats(json: StatsInput): Promise<StatsOutput>;
     workerLoad(): Promise<WorkerLoadData>;
