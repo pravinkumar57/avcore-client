@@ -59,9 +59,9 @@ export class ConferenceApi extends EventEmitter{
         this.device = new Device({handlerName:configs.deviceHandlerName});
     }
     async setPreferredLayers(layers:ConsumerLayers):Promise<void>{
+        const kind:MediaKind='video';
+        this.layers.set(kind,layers);
         if(this.operation===API_OPERATION.SUBSCRIBE){
-            const kind:MediaKind='video';
-            this.layers.set(kind,layers);
             const consumer=this.connectors.get(kind);
             if(consumer && typeof consumer!=='number'){
                 try {
