@@ -411,3 +411,6 @@ export interface LiveToHlsRequest extends StreamKindsData, HlsData {
 export interface MixerCommandInput extends MixerInput {
     command: string;
 }
+export interface ClearPipeTransportsInput {
+    originUrl: string;
+}
