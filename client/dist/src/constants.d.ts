@@ -77,7 +77,8 @@ export declare enum STAT {
 }
 export declare enum INFO {
     INFO = "info",
-    MCU = "mcu"
+    MCU = "mcu",
+    GST = "gst"
 }
 export declare const HLS: {
     ROOT: string;

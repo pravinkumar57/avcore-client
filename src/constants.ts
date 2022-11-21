@@ -94,7 +94,8 @@ export enum STAT {
 }
 export enum INFO {
     INFO="info",
-    MCU='mcu'
+    MCU='mcu',
+    GST='gst'
 }
 export const HLS={
     ROOT:'hls',
