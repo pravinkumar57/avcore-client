@@ -227,7 +227,7 @@ export interface PullStreamInputs extends StreamKindsData{
 export interface PullStreamInputsRequest extends PullStreamInputs{
     id:string
 }
-export interface PullStreamInputsResponse{
+export interface PullStreamInputsResponse extends Required<CodecKindsData>{
     sdp:string
     consumerIds:{[id:string]:string}
 }
