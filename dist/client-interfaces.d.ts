@@ -1,7 +1,7 @@
 import { MediaKind, RtpCapabilities, RtpEncodingParameters, RtpParameters } from 'mediasoup-client/lib/RtpParameters';
 import { ProducerCodecOptions } from 'mediasoup-client/lib/Producer';
 import { DtlsParameters } from 'mediasoup-client/lib/Transport';
-import { MIXER_PIPE_TYPE, MIXER_RENDER_TYPE } from './constants';
+import { CODEC, MIXER_PIPE_TYPE, MIXER_RENDER_TYPE } from './constants';
 export declare type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 export interface ConsumerData {
     consumerId: string;
@@ -142,15 +142,15 @@ export declare type CodecCopyKinds = {
 export interface CodecCopyOption {
     codecCopy?: CodecCopyKinds;
 }
-export interface StreamFileRequest extends StreamKindsData, KindsByFileInput, StreamingOptions, PushSimulcastInput, StreamFileRequestOptions, CodecCopyOption {
+export interface StreamFileRequest extends StreamKindsData, KindsByFileInput, StreamingOptions, PushSimulcastInput, StreamFileRequestOptions, CodecCopyOption, CodecKindsData {
 }
-export interface LiveStreamRequest extends StreamKindsData, StreamingOptions, PushSimulcastInput, CodecCopyOption {
+export interface LiveStreamRequest extends StreamKindsData, StreamingOptions, PushSimulcastInput, CodecCopyOption, CodecKindsData {
     url: string;
     rwTimeout?: number;
     restartOnExit?: boolean;
     restartTimeout?: number;
 }
-export interface TcpStreamingRequest extends StreamKindsData {
+export interface TcpStreamingRequest extends StreamKindsData, CodecKindsData {
     formats: {
         audio?: AudioFormatOptions;
         video?: VideoFormatOptions & BitrateOptions;
@@ -199,7 +199,13 @@ export interface PortData {
 export interface PushSimulcastInput {
     simulcast?: SizeData[];
 }
-export interface PushStreamOptionsRequest extends PullStreamInputs, PushSimulcastInput {
+export declare type CodecKinds = {
+    [kind in MediaKind]?: CODEC;
+};
+export interface CodecKindsData {
+    codecs?: CodecKinds;
+}
+export interface PushStreamOptionsRequest extends PullStreamInputs, PushSimulcastInput, CodecKindsData {
     bindPorts?: boolean;
 }
 export interface PushStreamRequest extends StreamKindsData {
@@ -323,7 +329,7 @@ export interface MixerAddVideoData extends MixerUpdateData, StreamListenData {
 export interface MixerAddAudioData extends MixerInput, StreamListenData {
     kind: 'audio';
 }
-export interface MixerAddFileData extends MixerPipeData, StreamData, KindsByFileInput, StreamFileRequestOptions {
+export interface MixerAddFileData extends MixerPipeData, StreamData, KindsByFileInput, StreamFileRequestOptions, CodecKindsData {
     loop?: boolean;
     skip?: number;
     removeOnExit?: boolean;

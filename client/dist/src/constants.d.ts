@@ -123,3 +123,8 @@ export declare enum MIXER_RENDER_TYPE {
     CROP = "crop",
     PAD = "pad"
 }
+export declare enum CODEC {
+    OPUS = "opus",
+    H264 = "h264",
+    VP8 = "vp8"
+}
