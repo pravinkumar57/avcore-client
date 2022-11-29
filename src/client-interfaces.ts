@@ -333,7 +333,7 @@ export interface MixerAddVideoData extends MixerUpdateData,StreamListenData{
 export interface MixerAddAudioData extends MixerInput,StreamListenData{
     kind:'audio'
 }
-export interface MixerAddFileData extends MixerPipeData,StreamData,KindsByFileInput,StreamFileRequestOptions,CodecKindsData{
+export interface MixerAddFileData extends MixerPipeData,StreamData,KindsByFileInput,StreamFileRequestOptions{
     loop?:boolean
     skip?:number
     removeOnExit?:boolean
@@ -379,7 +379,7 @@ export interface MixerHlsFormatCrfOptions extends MixerHlsFormatPresetOptions{
     crf: number
 }
 export type MixerHlsFormatOptions=MixerHlsFormatBitrateOptions|MixerHlsFormatCrfOptions
-export interface MixerPipeLiveData extends MixerPipeData,StreamData,PushSimulcastInput,BitrateOptions{
+export interface MixerPipeLiveData extends MixerPipeData,StreamData,PushSimulcastInput,BitrateOptions,CodecKindsData{
     type:MIXER_PIPE_TYPE.LIVE
 }
 export interface MixerPipeRecordingData extends MixerPipeData{
