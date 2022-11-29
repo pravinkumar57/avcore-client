@@ -180,7 +180,7 @@ export interface KindsByFileInput {
 export interface PushStreamInputsResponse {
     options: string[];
 }
-export interface PushStreamInputsRequest extends PullStreamInputsRequest, PushStreamInputsResponse {
+export interface PushStreamInputsRequest extends PullStreamInputsRequest, PushStreamInputsResponse, CodecKindsData {
 }
 export interface PushStreamOptionsResponse {
     portsData: {
